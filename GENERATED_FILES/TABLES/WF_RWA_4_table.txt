@@ -1,3 +1,7 @@
+NOTA: la "X" su Filtro può essere dato da
+	- La mancanza del campo ABI_BANCA su una vista
+	- Il filtro su DATA_RIFERIMENTO non è scritto in questo modo 'to_date($DT_RIFERIMENTO,"YYYY-MM-DD")'
+
 ╒════╤════════════════════════════════════════╤═════════════╤══════════╤════════════════════════════╤════════════════════════════╤════════════════════╕
 │    │ Mapping                                │ Parametri   │ Filtro   │ Coerenza Chiavi e PRESQL   │ Link FLG_ATTIVO e LOOKUP   │ MESSAGGIO valido   │
 ╞════╪════════════════════════════════════════╪═════════════╪══════════╪════════════════════════════╪════════════════════════════╪════════════════════╡

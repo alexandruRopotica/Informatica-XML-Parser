@@ -303,5 +303,8 @@ def generateTable(json_path, table_path):
             table.append([mapping, param_checked, filter_checked,
                          keys_sql_checked, flag_checked, message_checked])
     with open(table_path, 'w', encoding='utf-8') as txt_file:
+        txt_file.write('NOTA: la "X" su Filtro può essere dato da\n')
+        txt_file.write('\t- La mancanza del campo ABI_BANCA su una vista\n')
+        txt_file.write(f'\t- Il filtro su DATA_RIFERIMENTO non è scritto in questo modo \'{configs.DATE_STRING}\'\n\n')
         txt_file.write(tabulate(table, headers='firstrow',
                        tablefmt='fancy_grid', showindex=range(1, len(mappings.keys())+1)))

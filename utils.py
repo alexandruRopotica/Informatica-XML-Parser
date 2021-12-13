@@ -50,6 +50,7 @@ def createMappings(field_list):
     mapping_list = []
     for mapping_name, fields in field_list:
         mapping = Mapping(mapping_name)
+        message_checked = False
         for sub_field in fields:
             if sub_field.tag == 'parameters':
                 mapping.createParameter(sub_field)
@@ -58,8 +59,13 @@ def createMappings(field_list):
                     if abstract_transformation.get('name') == 'Exp_INPUT_VALORI':
                         exp_fields = abstract_transformation[0][0][0]
                         mapping.createRuleKeys(exp_fields)
-                    elif abstract_transformation.get('name') == 'Exp_OUTPUT_LKP_ATTIVAZ_CONTROLLO' or \
-                        abstract_transformation.get('name') == 'Expression' or \
+                    elif abstract_transformation.get('name') == 'Exp_OUTPUT_LKP_ATTIVAZ_CONTROLLO':
+                        exp_fields = abstract_transformation[0][0][0]
+                        mapping.createFlag(exp_fields)
+                        mapping.createMessage(exp_fields)
+                        if mapping.getMessage() is not None:
+                            message_checked = True
+                    elif abstract_transformation.get('name') == 'Expression' or \
                         abstract_transformation.get('name') == 'Exp_OUTPUT_LKP' or \
                             abstract_transformation.get('name') == 'Expression1':
                         exp_fields = abstract_transformation[0][0][0]
@@ -76,12 +82,13 @@ def createMappings(field_list):
                         join_interfaces = abstract_transformation[0]
                         mapping.createSecondJoiners(
                             abstract_transformation, join_interfaces)
-                    elif abstract_transformation.get(configs.TYPE_STRING) == 'expression:ExpressionTx':
-                        exp_fields = abstract_transformation[0][0][0]
-                        mapping.createMessage(exp_fields)
                     elif abstract_transformation.get(configs.TYPE_STRING) == 'lookup:LookupTx' and abstract_transformation.get('name') == configs.LKP_TABLE_NAME:
                         mapping.updateLookup(
                             abstract_transformation.get('name'))
+                    if not message_checked and (abstract_transformation.get(configs.TYPE_STRING) == 'expression:ExpressionTx' or
+                                                abstract_transformation.get('name').lower() == 'custom_message'):
+                        exp_fields = abstract_transformation[0][0][0]
+                        mapping.createMessage(exp_fields)
         mapping_list.append(mapping)
     return mapping_list
 
@@ -279,7 +286,7 @@ def generateTXT(json_path, txt_path):
 
 def generateTable(json_path, table_path):
     table = [['Mapping', 'Parametri', 'Filtro',
-              'Chiavi e PRESQL', 'FLG_ATTIVO e LOOKUP']]
+              'Coerenza Chiavi e PRESQL', 'Link FLG_ATTIVO e LOOKUP', 'MESSAGGIO valido']]
     with open(json_path) as json_file:
         mappings = json.load(json_file)
         for mapping in mappings:
@@ -291,8 +298,10 @@ def generateTable(json_path, table_path):
                 mapping)["Chiavi controllo"], mappings.get(mapping)['Tabelle target'])
             flag_checked = CK.check_flag(mappings.get(
                 mapping)['Flag attivo'], mappings.get(mapping)['Tabella lookup'])
+            message_checked = CK.check_message(
+                mappings.get(mapping)['Messaggio'])
             table.append([mapping, param_checked, filter_checked,
-                         keys_sql_checked, flag_checked])
+                         keys_sql_checked, flag_checked, message_checked])
     with open(table_path, 'w', encoding='utf-8') as txt_file:
         txt_file.write(tabulate(table, headers='firstrow',
                        tablefmt='fancy_grid', showindex=range(1, len(mappings.keys())+1)))

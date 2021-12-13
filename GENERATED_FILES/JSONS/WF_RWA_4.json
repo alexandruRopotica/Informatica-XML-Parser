@@ -41,7 +41,7 @@
             ]
         ],
         "Join": [],
-        "Messaggio": null,
+        "Messaggio": "COD_GRADO_RISCHIO non valorizzato correttamente",
         "Flag attivo": 1,
         "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
     },
@@ -87,7 +87,7 @@
             ]
         ],
         "Join": [],
-        "Messaggio": null,
+        "Messaggio": "COD_SAE non valorizzato correttamente",
         "Flag attivo": 1,
         "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
     },
@@ -133,7 +133,7 @@
             ]
         ],
         "Join": [],
-        "Messaggio": null,
+        "Messaggio": "COD_PAESE_RESIDENZA non valorizzato correttamente",
         "Flag attivo": 1,
         "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
     },
@@ -1133,7 +1133,7 @@
             ]
         ],
         "Join": [],
-        "Messaggio": "IIF(FLAG_PRESENZA_CONCESSIONI<>S or ISNULL(DATA_CONCESSIONE),FLAG_PRESENZA_CONCESSIONI e DATA_CONCESSIONE non valorizzate correttamente)",
+        "Messaggio": "Non esistono record con DATA_CONCESSIONE non valorizzato correttamente",
         "Flag attivo": 1,
         "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
     },
@@ -1438,7 +1438,7 @@
                 "DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND ID_GARANZIA = ID_GARANZIA_DTL"
             ]
         ],
-        "Messaggio": null,
+        "Messaggio": "Tutti i record hanno ID_DIRITTO_REALE non correttaemente valorizzato ",
         "Flag attivo": 1,
         "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
     },
@@ -1505,7 +1505,7 @@
                 "DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND ID_GARANZIA = ID_GARANZIA_DTL"
             ]
         ],
-        "Messaggio": null,
+        "Messaggio": "Non esistono record con COD_SERVIZIO, RAPPORTO e ID_ISIN_TITOLO valorizzati correttamente",
         "Flag attivo": 0,
         "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
     },
@@ -1580,7 +1580,7 @@
                 "DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND COD_TIPOLOGIA_GARANZIA = COD_TIPOLOGIA_GARANZIA_COMBINATA_DTL"
             ]
         ],
-        "Messaggio": null,
+        "Messaggio": "Non esistono record con COD_SERVIZIO e RAPPORTO valorizzati correttamente",
         "Flag attivo": 0,
         "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
     },
@@ -1630,7 +1630,7 @@
             ]
         ],
         "Join": [],
-        "Messaggio": null,
+        "Messaggio": "Non esistono record con COD_TIPO_LEGAME e COD_STATO_LEGAME_GARA_GARANTE valorizzati correttamente",
         "Flag attivo": 1,
         "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
     },

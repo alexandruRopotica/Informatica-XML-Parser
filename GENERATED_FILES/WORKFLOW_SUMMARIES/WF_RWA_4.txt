@@ -8,7 +8,8 @@ Le tabelle target sono:
 	- Write_EDQSTGTB00001N con pre-SQL delete from "EDQSTGTB00001N" where  ID_SISTEMA="SIB" AND ID_PROGR_CONTROLLO="497" AND ABI IN ($ABI)
 	- Write_EDQSTGTB00002N con pre-SQL delete from "EDQSTGTB00002N" where ID_SISTEMA="SIB" AND ID_PROGR_CONTROLLO="497" AND ABI IN ($ABI)
 Non ci sono Join nel mapping
-Campo MESSAGGIO non valorizzato
+Il valore del campo MESSAGGIO e':
+	COD_GRADO_RISCHIO non valorizzato correttamente
 FLG_ATTIVO collegato da Lookup_ANAEDQODSTB00001N
 
 m_Anag_10
@@ -20,7 +21,8 @@ Le tabelle target sono:
 	- Write_EDQSTGTB00001N con pre-SQL delete from "EDQSTGTB00001N" where  ID_SISTEMA="SIB" AND ID_PROGR_CONTROLLO="498" AND ABI IN ($ABI)
 	- Write_EDQSTGTB00002N con pre-SQL delete from "EDQSTGTB00002N" where  ID_SISTEMA="SIB" AND ID_PROGR_CONTROLLO="498" AND ABI IN ($ABI)
 Non ci sono Join nel mapping
-Campo MESSAGGIO non valorizzato
+Il valore del campo MESSAGGIO e':
+	COD_SAE non valorizzato correttamente
 FLG_ATTIVO collegato da Lookup_ANAEDQODSTB00001N
 
 m_Anag_15
@@ -32,7 +34,8 @@ Le tabelle target sono:
 	- Write_EDQSTGTB00001N con pre-SQL delete from "EDQSTGTB00001N" where  ID_SISTEMA="SIB" AND ID_PROGR_CONTROLLO="499" AND ABI IN ($ABI)
 	- Write_EDQSTGTB00002N con pre-SQL delete from "EDQSTGTB00002N" where  ID_SISTEMA="SIB" AND ID_PROGR_CONTROLLO="499"  AND ABI IN ($ABI)
 Non ci sono Join nel mapping
-Campo MESSAGGIO non valorizzato
+Il valore del campo MESSAGGIO e':
+	COD_PAESE_RESIDENZA non valorizzato correttamente
 FLG_ATTIVO collegato da Lookup_ANAEDQODSTB00001N
 
 m_Sib2000_Rap_01_Certificati_Deposito
@@ -335,8 +338,7 @@ Le tabelle target sono:
 	- Write_EDQSTGTB00002N con pre-SQL delete from "EDQSTGTB00002N" where  ID_SISTEMA="SIB" AND ID_PROGR_CONTROLLO="515" AND ID_PROGR_OCCORRENZA="1" AND ABI IN ($ABI)
 Non ci sono Join nel mapping
 Il valore del campo MESSAGGIO e':
-	IIF(FLAG_PRESENZA_CONCESSIONI<>S or ISNULL(DATA_CONCESSIONE),FLAG_PRESENZA_CONCESSIONI e DATA_CONCESSIONE non
-	valorizzate correttamente)
+	Non esistono record con DATA_CONCESSIONE non valorizzato correttamente
 FLG_ATTIVO collegato da Lookup_ANAEDQODSTB00001N
 
 m_Estero_Rap_35_CREDITI_FIRMA_ESTERO
@@ -424,7 +426,8 @@ Le tabelle target sono:
 Le tabelle di Join sono:
 	- From_Read_GARANZIE (Master) e From_Read_GARANZIE_DIRITTI (Detail) con chiave
 		 DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND ID_GARANZIA = ID_GARANZIA_DTL
-Campo MESSAGGIO non valorizzato
+Il valore del campo MESSAGGIO e':
+	Tutti i record hanno ID_DIRITTO_REALE non correttaemente valorizzato
 FLG_ATTIVO collegato da Lookup_ANAEDQODSTB00001N
 
 m_Garanzie_Rap_15_05
@@ -440,7 +443,8 @@ Le tabelle target sono:
 Le tabelle di Join sono:
 	- From_Read_GARANZIE (Master) e From_Read_PEGNI (Detail) con chiave
 		 DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND ID_GARANZIA = ID_GARANZIA_DTL
-Campo MESSAGGIO non valorizzato
+Il valore del campo MESSAGGIO e':
+	Non esistono record con COD_SERVIZIO, RAPPORTO e ID_ISIN_TITOLO valorizzati correttamente
 FLG_ATTIVO potrebbe non essere collegato da Lookup_ANAEDQODSTB00001N
 
 m_Garanzie_Rap_15_06
@@ -458,7 +462,8 @@ Le tabelle di Join sono:
 		 DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND ID_GARANZIA = ID_GARANZIA_DTL
 	- L'output del precedente Join e' in join con From_Expression (Detail) con chiave
 		 DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND COD_TIPOLOGIA_GARANZIA = COD_TIPOLOGIA_GARANZIA_COMBINATA_DTL
-Campo MESSAGGIO non valorizzato
+Il valore del campo MESSAGGIO e':
+	Non esistono record con COD_SERVIZIO e RAPPORTO valorizzati correttamente
 FLG_ATTIVO potrebbe non essere collegato da Lookup_ANAEDQODSTB00001N
 
 m_Garanzie_Rap_15_07
@@ -472,7 +477,8 @@ Le tabelle target sono:
 	- Write_EDQSTGTB00001N con pre-SQL delete from "EDQSTGTB00001N" where  ID_SISTEMA="SIB" AND ID_PROGR_CONTROLLO="524" AND ABI IN ($ABI)
 	- Write_EDQSTGTB00002N con pre-SQL delete from "EDQSTGTB00002N" where  ID_SISTEMA="SIB" AND ID_PROGR_CONTROLLO="524" AND ABI IN ($ABI)
 Non ci sono Join nel mapping
-Campo MESSAGGIO non valorizzato
+Il valore del campo MESSAGGIO e':
+	Non esistono record con COD_TIPO_LEGAME e COD_STATO_LEGAME_GARA_GARANTE valorizzati correttamente
 FLG_ATTIVO collegato da Lookup_ANAEDQODSTB00001N
 
 m_Crediti_Rap_18

@@ -114,4 +114,4 @@ dmypy.json
 .pyre/
 
 # directories
-/GENERATED_FILES
+GENERATED_FILES/**

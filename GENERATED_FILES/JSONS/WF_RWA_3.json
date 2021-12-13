@@ -1,0 +1,2929 @@
+{
+    "m_Anag_15_05": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210630"
+            ],
+            [
+                "ABI",
+                "Default"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "478"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "1"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_DATI_ANAGRAFICI",
+                "\"S2A\".\"DATI_ANAGRAFICI\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"DATI_ANAGRAFICI\".\"ABI_BANCA\" in ($ABI) AND \"S2A\".\"DATI_ANAGRAFICI\".\"COD_PAESE_RESIDENZA\" is not null"
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"478\" AND ID_PROGR_OCCORRENZA=\"1\" AND ABI IN ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"478\" AND ID_PROGR_OCCORRENZA=\"1\" AND ABI IN ($ABI)"
+            ]
+        ],
+        "Join": [],
+        "Messaggio": "COD_SAE non valorizzato correttamente",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Sib2000_Rap_03_Conti_Banca": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210901"
+            ],
+            [
+                "ABI",
+                "Default"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "529"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "1"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_CONTI_BANCA",
+                "\"S2A\".\"CONTI_BANCA\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"CONTI_BANCA\".\"ABI_BANCA\" IN ($ABI)"
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"529\" AND ID_PROGR_OCCORRENZA=\"1\" AND ABI IN ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"529\" AND ID_PROGR_OCCORRENZA=\"1\" AND ABI IN ($ABI)"
+            ]
+        ],
+        "Join": [],
+        "Messaggio": "IIF(IMP_SALDO_CONTABILE_DIV<>0 OR ISNULL(IMP_SALDO_CONTABILE_DIV),IMP_SALDO_CONTABILE_DIV non valorizzato correttamente,\r\nIIF(ISNULL(DATA_ESTINZIONE_RAPPORTO),DATA_ESTINZIONE_RAPPORTO non valorizzata correttamente))",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Sib2000_Rap_03_Mid": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210901"
+            ],
+            [
+                "ABI",
+                "Default"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "529"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "2"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_MID",
+                "\"S2A\".\"MID\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"MID\".\"ABI_BANCA\" IN ($ABI)"
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"529\" AND ID_PROGR_OCCORRENZA=\"2\" AND ABI IN ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"529\" AND ID_PROGR_OCCORRENZA=\"2\" AND ABI IN ($ABI)"
+            ]
+        ],
+        "Join": [],
+        "Messaggio": "IIF(IMP_SALDO_NOMINALE<>0 OR ISNULL(IMP_SALDO_NOMINALE),IMP_SALDO_NOMINALE non valorizzato correttamente,\r\nIIF(ISNULL(DATA_ESTINZIONE_RAPPORTO),DATA_ESTINZIONE_RAPPORTO non valorizzata correttamente))",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Sib2000_Rap_03_Conti_Correnti": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210901"
+            ],
+            [
+                "ABI",
+                "Default"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "529"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "3"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_CONTI_CORRENTI",
+                "\"S2A\".\"CONTI_CORRENTI\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"CONTI_CORRENTI\".\"ABI_BANCA\" IN ($ABI)"
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"529\" AND ID_PROGR_OCCORRENZA=\"3\" AND ABI IN ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"529\" AND ID_PROGR_OCCORRENZA=\"3\" AND ABI IN ($ABI)"
+            ]
+        ],
+        "Join": [],
+        "Messaggio": "IIF(IMP_SALDO_CONTABILE_IN_DIVISA<>0 OR ISNULL(IMP_SALDO_CONTABILE_IN_DIVISA),IMP_SALDO_CONTABILE_IN_DIVISA non valorizzato correttamente,\r\nIIF(ISNULL(DATA_ESTINZIONE_RAPPORTO),DATA_ESTINZIONE_RAPPORTO non valorizzata correttamente))",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Sib2000_Rap_03_Depositi_Risparmio": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210901"
+            ],
+            [
+                "ABI",
+                "Default"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "529"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "4"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_DEPOSITI_RISPARMIO",
+                "\"S2A\".\"DEPOSITI_RISPARMIO\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"DEPOSITI_RISPARMIO\".\"ABI_BANCA\" IN ($ABI)"
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"529\" AND ID_PROGR_OCCORRENZA=\"4\" AND ABI IN ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"529\" AND ID_PROGR_OCCORRENZA=\"4\" AND ABI IN ($ABI)"
+            ]
+        ],
+        "Join": [],
+        "Messaggio": "IIF(IMP_SALDO_RAPPORTO<>0 OR ISNULL(IMP_SALDO_RAPPORTO),IMP_SALDO_RAPPORTO non valorizzato correttamente,\r\nIIF(ISNULL(DATA_ESTINZIONE_RAPPORTO),DATA_ESTINZIONE_RAPPORTO non valorizzata correttamente))",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Sib2000_Rap_03_Certificati_Deposito": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210901"
+            ],
+            [
+                "ABI",
+                "Default"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "529"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "5"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_CERTIFICATI_DEPOSITO",
+                "\"S2A\".\"CERTIFICATI_DEPOSITO\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"CERTIFICATI_DEPOSITO\".\"ABI_BANCA\" IN ($ABI)"
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"529\" AND ID_PROGR_OCCORRENZA=\"5\" AND ABI IN ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"529\" AND ID_PROGR_OCCORRENZA=\"5\" AND ABI IN ($ABI)"
+            ]
+        ],
+        "Join": [],
+        "Messaggio": "IIF(IMP_COSTO_AMMORTIZZATO_MESE<>0 OR ISNULL(IMP_COSTO_AMMORTIZZATO_MESE),IMP_COSTO_AMMORTIZZATO_MESE non valorizzato correttamente,\r\nIIF(ISNULL(DATA_ESTINZIONE_RAPPORTO),DATA_ESTINZIONE_RAPPORTO non valorizzata correttamente))",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Sib2000_Rap_03_Crediti_Firma": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210901"
+            ],
+            [
+                "ABI",
+                "Default"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "529"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "6"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_CREDITI_FIRMA",
+                "\"S2A\".\"CREDITI_FIRMA\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"CREDITI_FIRMA\".\"ABI_BANCA\" IN ($ABI)"
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"529\" AND ID_PROGR_OCCORRENZA=\"6\" AND ABI IN ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"529\" AND ID_PROGR_OCCORRENZA=\"6\" AND ABI IN ($ABI)"
+            ]
+        ],
+        "Join": [],
+        "Messaggio": "IIF(IMP_SALDO_CONTAB_PARTITA_DIV<>0 OR ISNULL(IMP_SALDO_CONTAB_PARTITA_DIV),IMP_SALDO_CONTAB_PARTITA_DIV non valorizzato correttamente,\r\nIIF(ISNULL(DATA_ESTINZIONE_RAPPORTO),DATA_ESTINZIONE_RAPPORTO non valorizzata correttamente))",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Sib2000_Rap_03_Depositi_Estero": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210901"
+            ],
+            [
+                "ABI",
+                "Default"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "529"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "7"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_DEPOSITI_ESTERO",
+                "\"S2A\".\"DEPOSITI_ESTERO\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"DEPOSITI_ESTERO\".\"ABI_BANCA\" IN ($ABI)"
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"529\" AND ID_PROGR_OCCORRENZA=\"7\" AND ABI IN ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"529\" AND ID_PROGR_OCCORRENZA=\"7\" AND ABI IN ($ABI)"
+            ]
+        ],
+        "Join": [],
+        "Messaggio": "IIF(IMP_SALDO_CONTAB_PARTITA_DIV<>0 OR ISNULL(IMP_SALDO_CONTAB_PARTITA_DIV),IMP_SALDO_CONTAB_PARTITA_DIV non valorizzato correttamente,\r\nIIF(ISNULL(DATA_ESTINZIONE_RAPPORTO),DATA_ESTINZIONE_RAPPORTO non valorizzata correttamente))",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Sib2000_Rap_03_Crediti_Firma_Estero": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210901"
+            ],
+            [
+                "ABI",
+                "Default"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "529"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "8"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_CREDITI_FIRMA_ESTERO",
+                "\"S2A\".\"CREDITI_FIRMA_ESTERO\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"CREDITI_FIRMA_ESTERO\".\"ABI_BANCA\" IN ($ABI)"
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"529\" AND ID_PROGR_OCCORRENZA=\"8\" AND ABI IN ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"529\" AND ID_PROGR_OCCORRENZA=\"8\" AND ABI IN ($ABI)"
+            ]
+        ],
+        "Join": [],
+        "Messaggio": "IIF(IMP_SALDO_CONTAB_PARTITA_DIV<>0 OR ISNULL(IMP_SALDO_CONTAB_PARTITA_DIV),IMP_SALDO_CONTAB_PARTITA_DIV non valorizzato correttamente,\r\nIIF(ISNULL(DATA_ESTINZIONE_RAPPORTO),DATA_ESTINZIONE_RAPPORTO non valorizzata correttamente))",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Sib2000_Rap_03_Finanziamenti_Estero": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210901"
+            ],
+            [
+                "ABI",
+                "Default"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "529"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "9"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_FINANZIAMENTI_ESTERO",
+                "\"S2A\".\"FINANZIAMENTI_ESTERO\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"FINANZIAMENTI_ESTERO\".\"ABI_BANCA\" IN ($ABI)"
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"529\" AND ID_PROGR_OCCORRENZA=\"9\" AND ABI IN ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"529\" AND ID_PROGR_OCCORRENZA=\"9\" AND ABI IN ($ABI)"
+            ]
+        ],
+        "Join": [],
+        "Messaggio": "IIF(IMP_SALDO_CONTAB_PARTITA_DIV<>0 OR ISNULL(IMP_SALDO_CONTAB_PARTITA_DIV),IMP_SALDO_CONTAB_PARTITA_DIV non valorizzato correttamente,\r\nIIF(ISNULL(DATA_ESTINZIONE_RAPPORTO),DATA_ESTINZIONE_RAPPORTO non valorizzata correttamente))",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Sib2000_Rap_03_Mutui": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210901"
+            ],
+            [
+                "ABI",
+                "Default"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "529"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "10"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_MUTUI",
+                "\"S2A\".\"MUTUI\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"MUTUI\".\"ABI_BANCA\" IN ($ABI)"
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"529\" AND ID_PROGR_OCCORRENZA=\"10\" AND ABI IN ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"529\" AND ID_PROGR_OCCORRENZA=\"10\" AND ABI IN ($ABI)"
+            ]
+        ],
+        "Join": [],
+        "Messaggio": "IIF(IMP_DEBITO_RESIDUO<>0 OR ISNULL(IMP_DEBITO_RESIDUO),IMP_DEBITO_RESIDUO non valorizzato correttamente,\r\nIIF(ISNULL(DATA_ESTINZIONE_RAPPORTO),DATA_ESTINZIONE_RAPPORTO non valorizzata correttamente))",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Sib2000_Rap_03_Mutui_Passivi": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210901"
+            ],
+            [
+                "ABI",
+                "Default"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "529"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "11"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_MUTUI_PASSIVI",
+                "\"S2A\".\"MUTUI_PASSIVI\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"MUTUI_PASSIVI\".\"ABI_BANCA\" IN ($ABI)"
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"529\" AND ID_PROGR_OCCORRENZA=\"11\" AND ABI IN ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"529\" AND ID_PROGR_OCCORRENZA=\"11\" AND ABI IN ($ABI)"
+            ]
+        ],
+        "Join": [],
+        "Messaggio": "IIF(IMP_DEBITO_RESIDUO_CORRENTE<>0 OR ISNULL(IMP_DEBITO_RESIDUO_CORRENTE),IMP_DEBITO_RESIDUO_CORRENTE non valorizzato correttamente,\r\nIIF(ISNULL(DATA_ESTINZIONE_RAPPORTO),DATA_ESTINZIONE_RAPPORTO non valorizzata correttamente))",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Sib2000_Rap_03_Sofferenze": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210901"
+            ],
+            [
+                "ABI",
+                "Default"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "529"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "12"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_SOFFERENZE",
+                "\"S2A\".\"SOFFERENZE\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"SOFFERENZE\".\"ABI_BANCA\" IN ($ABI)"
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"529\" AND ID_PROGR_OCCORRENZA=\"12\" AND ABI IN ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"529\" AND ID_PROGR_OCCORRENZA=\"12\" AND ABI IN ($ABI)"
+            ]
+        ],
+        "Join": [],
+        "Messaggio": "IIF(IMP_COSTO_AMMORTIZZATO_MESE<>0 OR ISNULL(IMP_COSTO_AMMORTIZZATO_MESE),IMP_COSTO_AMMORTIZZATO_MESE non valorizzato correttamente,\r\nIIF(ISNULL(DATA_ESTINZIONE_RAPPORTO),DATA_ESTINZIONE_RAPPORTO non valorizzata correttamente))",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Sib2000_Rap_03_Rapporti_Portafoglio": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210901"
+            ],
+            [
+                "ABI",
+                "Default"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "529"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "13"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_RAPPORTI_PORTAFOGLIO",
+                "\"S2A\".\"RAPPORTI_PORTAFOGLIO\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"RAPPORTI_PORTAFOGLIO\".\"ABI_BANCA\" IN ($ABI)"
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"529\" AND ID_PROGR_OCCORRENZA=\"13\" AND ABI IN ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"529\" AND ID_PROGR_OCCORRENZA=\"13\"  AND ABI IN ($ABI)"
+            ]
+        ],
+        "Join": [],
+        "Messaggio": "IIF(IMP_UTILIZZATO_EURO<>0 OR ISNULL(IMP_UTILIZZATO_EURO),IMP_UTILIZZATO_EURO non valorizzato correttamente,\r\nIIF(ISNULL(DATA_ESTINZIONE_RAPPORTO),DATA_ESTINZIONE_RAPPORTO non valorizzata correttamente))",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Sib2000_Rap_03_Dossier_Titoli": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210901"
+            ],
+            [
+                "ABI",
+                "Default"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "529"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "14"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_DOSSIER_TITOLI",
+                "\"S2A\".\"DOSSIER_TITOLI\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"DOSSIER_TITOLI\".\"ABI_BANCA\" IN ($ABI)"
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"529\" AND ID_PROGR_OCCORRENZA=\"14\" AND ABI IN ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"529\" AND ID_PROGR_OCCORRENZA=\"14\" AND ABI IN ($ABI)"
+            ]
+        ],
+        "Join": [],
+        "Messaggio": "IIF(IMP_CONTROVAL_MERCATO_EUR<>0 OR ISNULL(IMP_CONTROVAL_MERCATO_EUR),IMP_CONTROVAL_MERCATO_EUR non valorizzato correttamente,\r\nIIF(ISNULL(DATA_ESTINZIONE_RAPPORTO),DATA_ESTINZIONE_RAPPORTO non valorizzata correttamente))",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Sib2000_Rap_03_Creditori_Debitori": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210630"
+            ],
+            [
+                "ABI",
+                "Default"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "529"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "15"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_CREDITORI_DEBITORI",
+                "\"S2A\".\"CREDITORI_DEBITORI\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\")"
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"529\" AND ID_PROGR_OCCORRENZA=\"15\" AND ABI IN ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"529\" AND ID_PROGR_OCCORRENZA=\"15\" AND ABI IN ($ABI)"
+            ]
+        ],
+        "Join": [],
+        "Messaggio": "IIF(IMP_SALDO_CONTAB_ATTIVO_VALUTA<>0 OR ISNULL(IMP_SALDO_CONTAB_ATTIVO_VALUTA),IMP_SALDO_CONTAB_ATTIVO_VALUTA non valorizzato correttamente,\r\nIIF(ISNULL(DATA_ESTINZIONE_RAPPORTO),DATA_ESTINZIONE_RAPPORTO non valorizzata correttamente))",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Crediti_Rap_09_Mutui": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210901"
+            ],
+            [
+                "ABI",
+                "Default"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "530"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "1"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_MUTUI",
+                "\"S2A\".\"MUTUI\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"MUTUI\".\"ABI_BANCA\" IN ($ABI)"
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"530\" AND ID_PROGR_OCCORRENZA=\"1\" AND ABI IN ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"530\" AND ID_PROGR_OCCORRENZA=\"1\" AND ABI IN ($ABI)"
+            ]
+        ],
+        "Join": [],
+        "Messaggio": "COD_POOL_PUMA non valorizzato correttamente",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Crediti_Rap_09_CC": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210901"
+            ],
+            [
+                "ABI",
+                "Default"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "530"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "2"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_CONTI_CORRENTI",
+                "\"S2A\".\"CONTI_CORRENTI\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"CONTI_CORRENTI\".\"ABI_BANCA\" IN ($ABI)"
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"530\" AND ID_PROGR_OCCORRENZA=\"2\"  AND ABI IN ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"530\" AND ID_PROGR_OCCORRENZA=\"2\" AND ABI IN ($ABI)"
+            ]
+        ],
+        "Join": [],
+        "Messaggio": "COD_POOL_PUMA non valorizzato correttamente",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Crediti_Rap_21_01": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210630"
+            ],
+            [
+                "ABI",
+                "Default"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "531"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "1"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_CREDITI_FIRMA",
+                "\"S2A\".\"CREDITI_FIRMA\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"CREDITI_FIRMA\".\"ABI_BANCA\" IN ($ABI) AND \r\n(\"S2A\".\"CREDITI_FIRMA\".\"COD_CLASSIF_IFRS9\" is not null or \"S2A\".\"CREDITI_FIRMA\".\"COD_CLASSIF_IFRS9\" <> \" \") and \"S2A\".\"CREDITI_FIRMA\".\"COD_CLASSIF_IFRS9\"<>\"X\" and \"S2A\".\"CREDITI_FIRMA\".\"COD_CLASSIF_IFRS9\"<>\"F\""
+            ],
+            [
+                "Read_DATI_TRIMESTRALI_CREDITI",
+                "\"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"ABI_BANCA\" IN ($ABI)"
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"531\" AND ID_PROGR_OCCORRENZA=\"1\" AND ABI IN ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"531\" AND ID_PROGR_OCCORRENZA=\"1\" AND ABI IN ($ABI)"
+            ]
+        ],
+        "Join": [
+            [
+                "Detail",
+                "From_Read_DATI_TRIMESTRALI_CREDITI"
+            ],
+            [
+                "Master",
+                "From_Read_CREDITI_FIRMA"
+            ],
+            [
+                "Prima condizione di join",
+                "DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND SERVIZIO = SERVIZIO_DTL AND RAPPORTO = ID_RAPPORTO_FIDO_DTL"
+            ]
+        ],
+        "Messaggio": "COD_STAGE non valorizzato correttamente",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Crediti_Rap_21_03": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210630"
+            ],
+            [
+                "ABI",
+                "Default"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "532"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "1"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_CREDITI_FIRMA",
+                "\"S2A\".\"CREDITI_FIRMA\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"CREDITI_FIRMA\".\"ABI_BANCA\" IN ($ABI)"
+            ],
+            [
+                "Read_DATI_ANAGRAFICI_CREDITO",
+                "\"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"ABI_BANCA\" IN ($ABI) AND \r\n\"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"COD_TIPO_CREDITO\" not in (\"5\",\"9\")"
+            ],
+            [
+                "Read_DATI_TRIMESTRALI_CREDITI",
+                "\"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"ABI_BANCA\" IN ($ABI)"
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"532\" AND ID_PROGR_OCCORRENZA=\"1\" AND ABI_BANCA\" IN ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"532\" AND ID_PROGR_OCCORRENZA=\"1\" AND ABI_BANCA\" IN ($ABI)"
+            ]
+        ],
+        "Join": [
+            [
+                "Detail",
+                "From_Read_DATI_ANAGRAFICI_CREDITO"
+            ],
+            [
+                "Master",
+                "From_Read_CREDITI_FIRMA"
+            ],
+            [
+                "Prima condizione di join",
+                "DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND CAG_INTESTATARIO = CAG_CODICE_ANAGRAFE_GENERALE_DTL"
+            ],
+            [
+                "Detail",
+                "From_Read_DATI_TRIMESTRALI_CREDITI"
+            ],
+            [
+                "Seconda condizione di join",
+                "DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND SERVIZIO = SERVIZIO_DTL AND RAPPORTO = ID_RAPPORTO_FIDO_DTL"
+            ]
+        ],
+        "Messaggio": "COD_STAGE non valorizzato correttamente",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Crediti_Rap_21_04": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210630"
+            ],
+            [
+                "ABI",
+                "Default"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "533"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "1"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_CREDITI_FIRMA",
+                "\"S2A\".\"CREDITI_FIRMA\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"CREDITI_FIRMA\".\"ABI_BANCA\" IN ($ABI)"
+            ],
+            [
+                "Read_DATI_ANAGRAFICI_CREDITO",
+                "\"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"ABI_BANCA\" IN ($ABI) AND \"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"COD_TIPO_CREDITO\" in (\"5\",\"9\")"
+            ],
+            [
+                "Read_DATI_TRIMESTRALI_CREDITI",
+                "\"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"ABI_BANCA\" IN ($ABI)"
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"533\" AND ID_PROGR_OCCORRENZA=\"1\" AND ABI IN ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"533\" AND ID_PROGR_OCCORRENZA=\"1\" AND ABI IN ($ABI)"
+            ]
+        ],
+        "Join": [
+            [
+                "Detail",
+                "From_Read_DATI_ANAGRAFICI_CREDITO"
+            ],
+            [
+                "Master",
+                "From_Read_CREDITI_FIRMA"
+            ],
+            [
+                "Prima condizione di join",
+                "DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND CAG_INTESTATARIO = CAG_CODICE_ANAGRAFE_GENERALE_DTL"
+            ],
+            [
+                "Detail",
+                "From_Read_DATI_TRIMESTRALI_CREDITI"
+            ],
+            [
+                "Seconda condizione di join",
+                "DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND SERVIZIO = SERVIZIO_DTL AND RAPPORTO = ID_RAPPORTO_FIDO_DTL"
+            ]
+        ],
+        "Messaggio": "COD_STAGE non valorizzato correttamente",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Titoli_Rap_33": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210901"
+            ],
+            [
+                "ABI",
+                "Default"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "534"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "1"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_CATEGORIE_CONTABILI_IFRS9_FINANZA",
+                "\"S2A\".\"CATEGORIE_CONTABILI_IFRS9_FINANZA\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"CATEGORIE_CONTABILI_IFRS9_FINANZA\".\"ABI_BANCA\" IN ($ABI)"
+            ],
+            [
+                "Read_SALDI_TITOLI_PROPRI",
+                "\"S2A\".\"SALDI_TITOLI_PROPRI\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"SALDI_TITOLI_PROPRI\".\"ABI_BANCA\" IN ($ABI)"
+            ],
+            [
+                "Read_ANAGRAFICA_TITOLI",
+                "\"S2A\".\"ANAGRAFICA_TITOLI\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") and \"S2A\".\"ANAGRAFICA_TITOLI\".\"COD_TIPO_VALORE_MOBILIARE\"=\"A\""
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"534\" AND ID_PROGR_OCCORRENZA=\"1\" AND ABI IN ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"534\" AND ID_PROGR_OCCORRENZA=\"1\" AND ABI IN ($ABI)"
+            ]
+        ],
+        "Join": [
+            [
+                "Detail",
+                "From_Read_SALDI_TITOLI_PROPRI"
+            ],
+            [
+                "Master",
+                "From_Read_ANAGRAFICA_TITOLI"
+            ],
+            [
+                "Prima condizione di join",
+                "DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND CODICE_ISIN = CONCAT(COD_PAESE_EMITTENTE_DTL,COD_NAZIONALE_TITOLO_DTL)"
+            ],
+            [
+                "Detail",
+                "From_Read_CATEGORIE_CONTABILI_IFRS9_FINANZA"
+            ],
+            [
+                "Seconda condizione di join",
+                "DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND COD_CATEG_CONTABILE_IFRS9 = COD_ELEMENTO_DTL"
+            ]
+        ],
+        "Messaggio": "COD_TIPO_CONTABILITA non valorizzato correttamente",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Titoli_Rap_34": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210901"
+            ],
+            [
+                "ABI",
+                "Default"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "535"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "1"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_CATEGORIE_CONTABILI_IFRS9_FINANZA",
+                "\"S2A\".\"CATEGORIE_CONTABILI_IFRS9_FINANZA\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"CATEGORIE_CONTABILI_IFRS9_FINANZA\".\"ABI_BANCA\" IN ($ABI)"
+            ],
+            [
+                "Read_SALDI_TITOLI_PROPRI",
+                "\"S2A\".\"SALDI_TITOLI_PROPRI\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") \"S2A\".\"SALDI_TITOLI_PROPRI\".\"ABI_BANCA\" IN ($ABI)"
+            ],
+            [
+                "Read_ANAGRAFICA_TITOLI",
+                "\"S2A\".\"ANAGRAFICA_TITOLI\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND (\"S2A\".\"ANAGRAFICA_TITOLI\".\"COD_TIPO_VALORE_MOBILIARE\"=\"F\" or \"S2A\".\"ANAGRAFICA_TITOLI\".\"COD_TIPO_VALORE_MOBILIARE\"=\"S\")"
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"535\" AND ID_PROGR_OCCORRENZA=\"1\" AND ABI IN ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"535\" AND ID_PROGR_OCCORRENZA=\"1\" AND ABI IN ($ABI)"
+            ]
+        ],
+        "Join": [
+            [
+                "Detail",
+                "From_Read_SALDI_TITOLI_PROPRI"
+            ],
+            [
+                "Master",
+                "From_Read_ANAGRAFICA_TITOLI"
+            ],
+            [
+                "Prima condizione di join",
+                "DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND CODICE_ISIN = CONCAT(COD_PAESE_EMITTENTE_DTL,COD_NAZIONALE_TITOLO_DTL)"
+            ],
+            [
+                "Detail",
+                "From_Read_CATEGORIE_CONTABILI_IFRS9_FINANZA"
+            ],
+            [
+                "Seconda condizione di join",
+                "DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND COD_CATEG_CONTABILE_IFRS9 = COD_ELEMENTO_DTL"
+            ]
+        ],
+        "Messaggio": "COD_TIPO_CONTABILITA non valorizzato correttamente",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Banche_Rap_20_02": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210630"
+            ],
+            [
+                "ABI",
+                "08692"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "536"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "1"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_CONTI_BANCA",
+                "\"S2A\".\"CONTI_BANCA\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"CONTI_BANCA\".\"ABI_BANCA\" IN ($ABI) AND  \"S2A\".\"CONTI_BANCA\".\"COD_CLASSIF_IFRS9\"=\"A\""
+            ],
+            [
+                "Read_DATI_TRIMESTRALI_CREDITI1",
+                "\"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"ABI_BANCA\" IN ($ABI)"
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"536\" AND ID_PROGR_OCCORRENZA=\"1\" AND ABI in ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"536\" AND ID_PROGR_OCCORRENZA=\"1\" AND ABI in ($ABI)"
+            ]
+        ],
+        "Join": [
+            [
+                "Detail",
+                "From_Read_DATI_TRIMESTRALI_CREDITI"
+            ],
+            [
+                "Master",
+                "From_Read_CONTI_BANCA"
+            ],
+            [
+                "Prima condizione di join",
+                "DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND SERVIZIO = SERVIZIO_DTL AND RAPPORTO = ID_RAPPORTO_FIDO_DTL"
+            ]
+        ],
+        "Messaggio": "COD_STAGE non valorizzato correttamente",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Cc_Depositi_Rap_20_02": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210630"
+            ],
+            [
+                "ABI",
+                "08692"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "536"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "2"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_CONTI_CORRENTI",
+                "\"S2A\".\"CONTI_CORRENTI\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"CONTI_CORRENTI\".\"ABI_BANCA\" IN ($ABI) AND  \"S2A\".\"CONTI_CORRENTI\".\"COD_CLASSIF_IFRS9\"=\"A\""
+            ],
+            [
+                "Read_DATI_TRIMESTRALI_CREDITI1",
+                "\"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"ABI_BANCA\" IN ($ABI)"
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"536\" AND ID_PROGR_OCCORRENZA=\"2\" AND ABI in ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"536\" AND ID_PROGR_OCCORRENZA=\"2\" AND ABI in ($ABI)"
+            ]
+        ],
+        "Join": [
+            [
+                "Detail",
+                "From_Read_DATI_TRIMESTRALI_CREDITI"
+            ],
+            [
+                "Master",
+                "From_Read_CONTI_CORRENTI"
+            ],
+            [
+                "Prima condizione di join",
+                "DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND SERVIZIO = SERVIZIO_DTL AND RAPPORTO = ID_RAPPORTO_FIDO_DTL"
+            ]
+        ],
+        "Messaggio": "COD_STAGE non valorizzato correttamente",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Estero_Rap_20_02": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210630"
+            ],
+            [
+                "ABI",
+                "08692"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "536"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "3"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_FINANZIAMENTI_ESTERO",
+                "\"S2A\".\"FINANZIAMENTI_ESTERO\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"FINANZIAMENTI_ESTERO\".\"ABI_BANCA\" IN ($ABI) AND \"S2A\".\"FINANZIAMENTI_ESTERO\".\"COD_CLASSIF_IFRS9\"=\"A\""
+            ],
+            [
+                "Read_DATI_TRIMESTRALI_CREDITI1",
+                "\"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"ABI_BANCA\" IN ($ABI)"
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"536\" AND ID_PROGR_OCCORRENZA=\"3\" AND ABI in ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"536\" AND ID_PROGR_OCCORRENZA=\"3\" AND ABI in ($ABI)"
+            ]
+        ],
+        "Join": [
+            [
+                "Detail",
+                "From_Read_DATI_TRIMESTRALI_CREDITI"
+            ],
+            [
+                "Master",
+                "From_Read_FINANZIAMENTI_ESTERO"
+            ],
+            [
+                "Prima condizione di join",
+                "DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND SERVIZIO = SERVIZIO_DTL AND RAPPORTO = ID_RAPPORTO_FIDO_DTL"
+            ]
+        ],
+        "Messaggio": "COD_STAGE non valorizzato correttamente",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Crediti_Rap_20_02_CdF": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210630"
+            ],
+            [
+                "ABI",
+                "08692"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "536"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "4"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_DATI_TRIMESTRALI_CREDITI1",
+                "\"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"ABI_BANCA\" IN ($ABI)"
+            ],
+            [
+                "Read_CREDITI_FIRMA",
+                "\"S2A\".\"CREDITI_FIRMA\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") and \"S2A\".\"CREDITI_FIRMA\".\"ABI_BANCA\" IN ($ABI) AND \"S2A\".\"CREDITI_FIRMA\".\"COD_CLASSIF_IFRS9\" in (\"O\", \"F\")"
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"536\" AND ID_PROGR_OCCORRENZA=\"4\" AND ABI in ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"536\" AND ID_PROGR_OCCORRENZA=\"4\" AND ABI in ($ABI)"
+            ]
+        ],
+        "Join": [
+            [
+                "Detail",
+                "From_Read_DATI_TRIMESTRALI_CREDITI"
+            ],
+            [
+                "Master",
+                "From_Read_CREDITI_FIRMA"
+            ],
+            [
+                "Prima condizione di join",
+                "DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND SERVIZIO = SERVIZIO_DTL AND RAPPORTO = ID_RAPPORTO_FIDO_DTL"
+            ]
+        ],
+        "Messaggio": "COD_STAGE non valorizzato correttamente",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Crediti_Rap_20_02": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210630"
+            ],
+            [
+                "ABI",
+                "08692"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "536"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "5"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_MUTUI",
+                "\"S2A\".\"MUTUI\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"MUTUI\".\"ABI_BANCA\" IN ($ABI) AND  \"S2A\".\"MUTUI\".\"COD_CLASSIF_IFRS9\"=\"A\""
+            ],
+            [
+                "Read_DATI_TRIMESTRALI_CREDITI1",
+                "\"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") \"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"ABI_BANCA\" IN ($ABI)"
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"536\" AND ID_PROGR_OCCORRENZA=\"5\" AND ABI in ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"536\" AND ID_PROGR_OCCORRENZA=\"5\" AND ABI in ($ABI)"
+            ]
+        ],
+        "Join": [
+            [
+                "Detail",
+                "From_Read_DATI_TRIMESTRALI_CREDITI"
+            ],
+            [
+                "Master",
+                "From_Read_MUTUI"
+            ],
+            [
+                "Prima condizione di join",
+                "DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND SERVIZIO = SERVIZIO_DTL AND RAPPORTO = ID_RAPPORTO_FIDO_DTL"
+            ]
+        ],
+        "Messaggio": "COD_STAGE non valorizzato correttamente",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Portafoglio_Rap_20_02": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210630"
+            ],
+            [
+                "ABI",
+                "08692"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "536"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "6"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_RAPPORTI_PORTAFOGLIO",
+                "\"S2A\".\"RAPPORTI_PORTAFOGLIO\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"RAPPORTI_PORTAFOGLIO\".\"ABI_BANCA\" IN ($ABI) AND \"S2A\".\"RAPPORTI_PORTAFOGLIO\".\"COD_CLASSIF_IFRS9\"=\"A\""
+            ],
+            [
+                "Read_DATI_TRIMESTRALI_CREDITI1",
+                "\"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"ABI_BANCA\" IN ($ABI)"
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"536\" AND ID_PROGR_OCCORRENZA=\"6\" AND ABI in ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"536\" AND ID_PROGR_OCCORRENZA=\"6\" AND ABI in ($ABI)"
+            ]
+        ],
+        "Join": [
+            [
+                "Detail",
+                "From_Read_DATI_TRIMESTRALI_CREDITI"
+            ],
+            [
+                "Master",
+                "From_Read_RAPPORTI_PORTAFOGLIO"
+            ],
+            [
+                "Prima condizione di join",
+                "DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND SERVIZIO = SERVIZIO_DTL AND RAPPORTO = ID_RAPPORTO_FIDO_DTL"
+            ]
+        ],
+        "Messaggio": "COD_STAGE non valorizzato correttamente",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Titoli_Rap_20_02": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210630"
+            ],
+            [
+                "ABI",
+                "08692"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "536"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "7"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_SALDI_TITOLI_PROPRI",
+                "\"S2A\".\"SALDI_TITOLI_PROPRI\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"SALDI_TITOLI_PROPRI\".\"ABI_BANCA\" IN ($ABI)"
+            ],
+            [
+                "Read_CATEGORIE_CONTABILI_IFRS9_FINANZA1",
+                "\"S2A\".\"CATEGORIE_CONTABILI_IFRS9_FINANZA\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") and \"S2A\".\"CATEGORIE_CONTABILI_IFRS9_FINANZA\".\"ABI_BANCA\" IN ($ABI) AND \"S2A\".\"CATEGORIE_CONTABILI_IFRS9_FINANZA\".\"COD_TIPO_CONTABILITA\"=\"A\""
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"536\" AND ID_PROGR_OCCORRENZA=\"7\" AND ABI in ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"536\" AND ID_PROGR_OCCORRENZA=\"7\" AND ABI in ($ABI)"
+            ]
+        ],
+        "Join": [
+            [
+                "Detail",
+                "From_Read_CATEGORIE_CONTABILI_IFRS9_FINANZA"
+            ],
+            [
+                "Master",
+                "From_Read_SALDI_TITOLI_PROPRI"
+            ],
+            [
+                "Prima condizione di join",
+                "DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND COD_CATEG_CONTABILE_IFRS9 = COD_ELEMENTO_DTL"
+            ]
+        ],
+        "Messaggio": "IIF(ISNULL(IMP_NOMINALE_STAGE1),IMP_NOMINALE_STAGE1 non valorizzato correttamente,\r\nIIF(ISNULL(IMP_NOMINALE_STAGE2),IMP_NOMINALE_STAGE2 non valorizzato correttamente,\r\nIIF(ISNULL(IMP_NOMINALE_STAGE3),IMP_NOMINALE_STAGE3 non valorizzato correttamente,\r\nIIF(IMP_NOMINALE_STAGE1+IMP_NOMINALE_STAGE2+IMP_NOMINALE_STAGE3=0, La somma dei campi IMP_NOMINALE_STAGE non \u00e8 diverso da 0))))",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Banche_Rap_20_03": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210630"
+            ],
+            [
+                "ABI",
+                "08692"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "537"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "1"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_CONTI_BANCA",
+                "\"S2A\".\"CONTI_BANCA\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"CONTI_BANCA\".\"ABI_BANCA\" in ($ABI) and  \"S2A\".\"CONTI_BANCA\".\"COD_CLASSIF_IFRS9\"=\"R\""
+            ],
+            [
+                "Read_DATI_TRIMESTRALI_CREDITI",
+                "\"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") and \"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"ABI_BANCA\" in ($ABI)"
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"537\" AND ID_PROGR_OCCORRENZA=\"1\" AND ABI in ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"537\" AND ID_PROGR_OCCORRENZA=\"1\" AND ABI in ($ABI)"
+            ]
+        ],
+        "Join": [
+            [
+                "Detail",
+                "From_Read_DATI_TRIMESTRALI_CREDITI"
+            ],
+            [
+                "Master",
+                "From_Read_CONTI_BANCA"
+            ],
+            [
+                "Prima condizione di join",
+                "DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND SERVIZIO = SERVIZIO_DTL AND RAPPORTO = ID_RAPPORTO_FIDO_DTL"
+            ]
+        ],
+        "Messaggio": "COD_STAGE non valorizzato correttamente",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Cc_Depositi_Rap_20_03": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210630"
+            ],
+            [
+                "ABI",
+                "08692"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "537"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "2"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_CONTI_CORRENTI",
+                "\"S2A\".\"CONTI_CORRENTI\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"CONTI_CORRENTI\".\"ABI_BANCA\" in ($ABI) and  \"S2A\".\"CONTI_CORRENTI\".\"COD_CLASSIF_IFRS9\"=\"R\""
+            ],
+            [
+                "Read_DATI_TRIMESTRALI_CREDITI",
+                "\"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") and  \"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"ABI_BANCA\" in ($ABI)"
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"537\" AND ID_PROGR_OCCORRENZA=\"2\" AND ABI in ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"537\" AND ID_PROGR_OCCORRENZA=\"2\" AND ABI in ($ABI)"
+            ]
+        ],
+        "Join": [
+            [
+                "Detail",
+                "From_Read_DATI_TRIMESTRALI_CREDITI"
+            ],
+            [
+                "Master",
+                "From_Read_CONTI_CORRENTI"
+            ],
+            [
+                "Prima condizione di join",
+                "DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND SERVIZIO = SERVIZIO_DTL AND RAPPORTO = ID_RAPPORTO_FIDO_DTL"
+            ]
+        ],
+        "Messaggio": "COD_STAGE non valorizzato correttamente",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Estero_Rap_20_03": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210630"
+            ],
+            [
+                "ABI",
+                "08692"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "537"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "3"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_FINANZIAMENTI_ESTERO",
+                "\"S2A\".\"FINANZIAMENTI_ESTERO\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"FINANZIAMENTI_ESTERO\".\"ABI_BANCA\" IN ($ABI) and \"S2A\".\"FINANZIAMENTI_ESTERO\".\"COD_CLASSIF_IFRS9\"=\"R\""
+            ],
+            [
+                "Read_DATI_TRIMESTRALI_CREDITI",
+                "\"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") and \"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"ABI_BANCA\" in ($ABI)"
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"537\" AND ID_PROGR_OCCORRENZA=\"3\" AND ABI in ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"537\" AND ID_PROGR_OCCORRENZA=\"3\" AND ABI in ($ABI)"
+            ]
+        ],
+        "Join": [
+            [
+                "Detail",
+                "From_Read_DATI_TRIMESTRALI_CREDITI"
+            ],
+            [
+                "Master",
+                "From_Read_FINANZIAMENTI_ESTERO"
+            ],
+            [
+                "Prima condizione di join",
+                "DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND SERVIZIO = SERVIZIO_DTL AND RAPPORTO = ID_RAPPORTO_FIDO_DTL"
+            ]
+        ],
+        "Messaggio": "COD_STAGE non valorizzato correttamente",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Crediti_Rap_20_03": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210630"
+            ],
+            [
+                "ABI",
+                "08692"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "537"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "4"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_MUTUI",
+                "\"S2A\".\"MUTUI\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"MUTUI\".\"ABI_BANCA\" IN ($ABI) and  \"S2A\".\"MUTUI\".\"COD_CLASSIF_IFRS9\"=\"R\""
+            ],
+            [
+                "Read_DATI_TRIMESTRALI_CREDITI",
+                "\"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") and \"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"ABI_BANCA\" in ($ABI)"
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"537\" AND ID_PROGR_OCCORRENZA=\"4\" AND ABI in ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"537\" AND ID_PROGR_OCCORRENZA=\"4\" AND ABI in ($ABI)"
+            ]
+        ],
+        "Join": [
+            [
+                "Detail",
+                "From_Read_DATI_TRIMESTRALI_CREDITI"
+            ],
+            [
+                "Master",
+                "From_Read_MUTUI"
+            ],
+            [
+                "Prima condizione di join",
+                "DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND SERVIZIO = SERVIZIO_DTL AND RAPPORTO = ID_RAPPORTO_FIDO_DTL"
+            ]
+        ],
+        "Messaggio": "COD_STAGE non valorizzato correttamente",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Portafoglio_Rap_20_03": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210630"
+            ],
+            [
+                "ABI",
+                "08692"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "537"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "5"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_RAPPORTI_PORTAFOGLIO",
+                "\"S2A\".\"RAPPORTI_PORTAFOGLIO\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"RAPPORTI_PORTAFOGLIO\".\"ABI_BANCA\" in ($ABI) and \"S2A\".\"RAPPORTI_PORTAFOGLIO\".\"COD_CLASSIF_IFRS9\" = \"R\""
+            ],
+            [
+                "Read_DATI_TRIMESTRALI_CREDITI",
+                "\"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") and \"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"ABI_BANCA\" in ($ABI)"
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"537\" AND ID_PROGR_OCCORRENZA=\"5\" AND ABI in ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"537\" AND ID_PROGR_OCCORRENZA=\"5\" AND ABI in ($ABI)"
+            ]
+        ],
+        "Join": [
+            [
+                "Detail",
+                "From_Read_DATI_TRIMESTRALI_CREDITI"
+            ],
+            [
+                "Master",
+                "From_Read_RAPPORTI_PORTAFOGLIO"
+            ],
+            [
+                "Prima condizione di join",
+                "DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND SERVIZIO = SERVIZIO_DTL AND RAPPORTO = ID_RAPPORTO_FIDO_DTL"
+            ]
+        ],
+        "Messaggio": "COD_STAGE non valorizzato correttamente",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Titoli_Rap_20_03": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210630"
+            ],
+            [
+                "ABI",
+                "08692"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "537"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "6"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_CATEGORIE_CONTABILI_IFRS9_FINANZA",
+                "\"S2A\".\"CATEGORIE_CONTABILI_IFRS9_FINANZA\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"CATEGORIE_CONTABILI_IFRS9_FINANZA\".\"ABI_BANCA\" IN ($ABI) and \"S2A\".\"CATEGORIE_CONTABILI_IFRS9_FINANZA\".\"COD_TIPO_CONTABILITA\"=\"R\""
+            ],
+            [
+                "Read_SALDI_TITOLI_PROPRI",
+                "\"S2A\".\"SALDI_TITOLI_PROPRI\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") and \"S2A\".\"SALDI_TITOLI_PROPRI\".\"ABI_BANCA\" in ($ABI)"
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where  ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"537\" AND ID_PROGR_OCCORRENZA=\"6\" AND ABI in ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where  ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"537\" AND ID_PROGR_OCCORRENZA=\"6\" AND ABI in ($ABI)"
+            ]
+        ],
+        "Join": [
+            [
+                "Detail",
+                "From_Read_CATEGORIE_CONTABILI_IFRS9_FINANZA"
+            ],
+            [
+                "Master",
+                "From_Read_SALDI_TITOLI_PROPRI"
+            ],
+            [
+                "Prima condizione di join",
+                "DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND COD_CATEG_CONTABILE_IFRS9 = COD_ELEMENTO_DTL"
+            ]
+        ],
+        "Messaggio": "IIF(ISNULL(IMP_NOMINALE_STAGE1),IMP_NOMINALE_STAGE1 non valorizzato correttamente,\r\nIIF(ISNULL(IMP_NOMINALE_STAGE2),IMP_NOMINALE_STAGE2 non valorizzato correttamente,\r\nIIF(ISNULL(IMP_NOMINALE_STAGE3),IMP_NOMINALE_STAGE3 non valorizzato correttamente,\r\nIIF(IMP_NOMINALE_STAGE1+IMP_NOMINALE_STAGE2+IMP_NOMINALE_STAGE3=0, La somma dei campi IMP_NOMINALE_STAGE non \u00e8 diversa a 0))))",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Banche_Rap_20_04": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210630"
+            ],
+            [
+                "ABI",
+                "08692"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "538"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "1"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_DATI_ANAGRAFICI_CREDITO",
+                "\"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"ABI_BANCA\" in ($ABI) and \"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"COD_TIPO_CREDITO\"<>\"5\" and \"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"COD_TIPO_CREDITO\"<>\"9\""
+            ],
+            [
+                "Read_DATI_TRIMESTRALI_CREDITI",
+                "\"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") and \"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"ABI_BANCA\" in ($ABI)"
+            ],
+            [
+                "Read_CONTI_BANCA",
+                "\"S2A\".\"CONTI_BANCA\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") and \"S2A\".\"CONTI_BANCA\".\"ABI_BANCA\" in ($ABI)"
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"538\" AND ID_PROGR_OCCORRENZA=\"1\" AND ABI in ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"538\" AND ID_PROGR_OCCORRENZA=\"1\" AND ABI in ($ABI)"
+            ]
+        ],
+        "Join": [
+            [
+                "Detail",
+                "From_Read_DATI_ANAGRAFICI_CREDITO"
+            ],
+            [
+                "Master",
+                "From_Read_CONTI_BANCA"
+            ],
+            [
+                "Prima condizione di join",
+                "DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND CAG_RISCHIO_INTESTATARIO = CAG_CODICE_ANAGRAFE_GENERALE_DTL"
+            ],
+            [
+                "Detail",
+                "From_Read_DATI_TRIMESTRALI_CREDITI"
+            ],
+            [
+                "Seconda condizione di join",
+                "DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND SERVIZIO = SERVIZIO_DTL AND RAPPORTO = ID_RAPPORTO_FIDO_DTL"
+            ]
+        ],
+        "Messaggio": "COD_STAGE non valorizzato correttamente",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Cc_Depositi_Rap_20_04": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210630"
+            ],
+            [
+                "ABI",
+                "08692"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "538"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "2"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_DATI_ANAGRAFICI_CREDITO",
+                "\"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"ABI_BANCA\" in ($ABI) and (\"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"COD_TIPO_CREDITO\"<>\"5\" and\"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"COD_TIPO_CREDITO\"<>\"9\")"
+            ],
+            [
+                "Read_CONTI_CORRENTI",
+                "\"S2A\".\"CONTI_CORRENTI\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") and \"S2A\".\"CONTI_CORRENTI\".\"ABI_BANCA\" in ($ABI)"
+            ],
+            [
+                "Read_DATI_TRIMESTRALI_CREDITI",
+                "\"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"ABI_BANCA\" IN ($ABI)"
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"538\" AND ID_PROGR_OCCORRENZA=\"2\" AND ABI in ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"538\" AND ID_PROGR_OCCORRENZA=\"2\" AND ABI in ($ABI)"
+            ]
+        ],
+        "Join": [
+            [
+                "Detail",
+                "From_Read_DATI_ANAGRAFICI_CREDITO"
+            ],
+            [
+                "Master",
+                "From_Read_CONTI_CORRENTI"
+            ],
+            [
+                "Prima condizione di join",
+                "DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND CAG_RISCHIO_INTESTATARIO = CAG_CODICE_ANAGRAFE_GENERALE_DTL"
+            ],
+            [
+                "Detail",
+                "From_Read_DATI_TRIMESTRALI_CREDITI"
+            ],
+            [
+                "Seconda condizione di join",
+                "DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND SERVIZIO = SERVIZIO_DTL AND RAPPORTO = ID_RAPPORTO_FIDO_DTL"
+            ]
+        ],
+        "Messaggio": "COD_STAGE non valorizzato correttamente",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Estero_Rap_20_04": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210630"
+            ],
+            [
+                "ABI",
+                "08692"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "538"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "3"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_DATI_ANAGRAFICI_CREDITO",
+                "\"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"ABI_BANCA\" IN ($ABI) AND \"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"COD_TIPO_CREDITO\"<>\"5\" AND \"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"COD_TIPO_CREDITO\"<>\"9\""
+            ],
+            [
+                "Read_FINANZIAMENTI_ESTERO",
+                "\"S2A\".\"FINANZIAMENTI_ESTERO\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") and \"S2A\".\"FINANZIAMENTI_ESTERO\".\"ABI_BANCA\" in ($ABI)"
+            ],
+            [
+                "Read_DATI_TRIMESTRALI_CREDITI",
+                "\"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") and \"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"ABI_BANCA\" in ($ABI)"
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"538\" AND ID_PROGR_OCCORRENZA=\"3\" AND ABI in ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"538\" AND ID_PROGR_OCCORRENZA=\"3\" AND ABI in ($ABI)"
+            ]
+        ],
+        "Join": [
+            [
+                "Detail",
+                "From_Read_DATI_ANAGRAFICI_CREDITO"
+            ],
+            [
+                "Master",
+                "From_Read_FINANZIAMENTI_ESTERO"
+            ],
+            [
+                "Prima condizione di join",
+                "DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND CAG_RISCHIO_INTESTATARIO = CAG_CODICE_ANAGRAFE_GENERALE_DTL"
+            ],
+            [
+                "Detail",
+                "From_Read_DATI_TRIMESTRALI_CREDITI"
+            ],
+            [
+                "Seconda condizione di join",
+                "DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND SERVIZIO = SERVIZIO_DTL AND RAPPORTO = ID_RAPPORTO_FIDO_DTL"
+            ]
+        ],
+        "Messaggio": "COD_STAGE non valorizzato correttamente",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Crediti_Rap_20_04_CdF": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210630"
+            ],
+            [
+                "ABI",
+                "08692"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "538"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "4"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_DATI_ANAGRAFICI_CREDITO",
+                "\"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"ABI_BANCA\" in ($ABI) and \"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"COD_TIPO_CREDITO\"<>\"5\" and\"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"COD_TIPO_CREDITO\"<>\"9\""
+            ],
+            [
+                "Read_DATI_TRIMESTRALI_CREDITI",
+                "\"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") and \"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"ABI_BANCA\" in ($ABI)"
+            ],
+            [
+                "Read_CREDITI_FIRMA",
+                "\"S2A\".\"CREDITI_FIRMA\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") and \"S2A\".\"CREDITI_FIRMA\".\"ABI_BANCA\" in ($ABI)"
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"538\" AND ID_PROGR_OCCORRENZA=\"4\" AND ABI in ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"538\" AND ID_PROGR_OCCORRENZA=\"4\" AND ABI in ($ABI)"
+            ]
+        ],
+        "Join": [
+            [
+                "Detail",
+                "From_Read_DATI_ANAGRAFICI_CREDITO"
+            ],
+            [
+                "Master",
+                "From_Read_CREDITI_FIRMA"
+            ],
+            [
+                "Prima condizione di join",
+                "DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND CAG_RISCHIO_INTESTATARIO = CAG_CODICE_ANAGRAFE_GENERALE_DTL"
+            ],
+            [
+                "Detail",
+                "From_Read_DATI_TRIMESTRALI_CREDITI"
+            ],
+            [
+                "Seconda condizione di join",
+                "DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND SERVIZIO = SERVIZIO_DTL AND RAPPORTO = ID_RAPPORTO_FIDO_DTL"
+            ]
+        ],
+        "Messaggio": "COD_STAGE non valorizzato correttamente",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Crediti_Rap_20_04": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210630"
+            ],
+            [
+                "ABI",
+                "08692"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "538"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "5"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_MUTUI",
+                "\"S2A\".\"MUTUI\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") and \"S2A\".\"MUTUI\".\"ABI_BANCA\" in ($ABI)"
+            ],
+            [
+                "Read_DATI_ANAGRAFICI_CREDITO",
+                "\"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"ABI_BANCA\" in ($ABI) and \"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"COD_TIPO_CREDITO\"<>\"5\" and\"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"COD_TIPO_CREDITO\"<>\"9\""
+            ],
+            [
+                "Read_DATI_TRIMESTRALI_CREDITI",
+                "\"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") and \"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"ABI_BANCA\" in ($ABI)"
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"538\" AND ID_PROGR_OCCORRENZA=\"5\" AND ABI in ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"538\" AND ID_PROGR_OCCORRENZA=\"5\" AND ABI in ($ABI)"
+            ]
+        ],
+        "Join": [
+            [
+                "Detail",
+                "From_Read_DATI_ANAGRAFICI_CREDITO"
+            ],
+            [
+                "Master",
+                "From_Read_MUTUI"
+            ],
+            [
+                "Prima condizione di join",
+                "DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND CAG_RISCHIO_INTESTATARIO = CAG_CODICE_ANAGRAFE_GENERALE_DTL"
+            ],
+            [
+                "Detail",
+                "From_Read_DATI_TRIMESTRALI_CREDITI"
+            ],
+            [
+                "Seconda condizione di join",
+                "DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND SERVIZIO = SERVIZIO_DTL AND RAPPORTO = ID_RAPPORTO_FIDO_DTL"
+            ]
+        ],
+        "Messaggio": "COD_STAGE non valorizzato correttamente",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Portafoglio_Rap_20_04": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210630"
+            ],
+            [
+                "ABI",
+                "08692"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "538"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "6"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_DATI_TRIMESTRALI_CREDITI",
+                "\"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") and \"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"ABI_BANCA\" in ($ABI)"
+            ],
+            [
+                "Read_DATI_ANAGRAFICI_CREDITO",
+                "\"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"ABI_BANCA\" in ($ABI) and \"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"COD_TIPO_CREDITO\"<>\"9\" AND \"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"COD_TIPO_CREDITO\"<>\"5\""
+            ],
+            [
+                "Read_RAPPORTI_PORTAFOGLIO",
+                "\"S2A\".\"RAPPORTI_PORTAFOGLIO\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") and \"S2A\".\"RAPPORTI_PORTAFOGLIO\".\"ABI_BANCA\" in ($ABI)"
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"538\" AND ID_PROGR_OCCORRENZA=\"6\" AND ABI in ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"538\" AND ID_PROGR_OCCORRENZA=\"6\" AND ABI in ($ABI)"
+            ]
+        ],
+        "Join": [
+            [
+                "Detail",
+                "From_Read_DATI_ANAGRAFICI_CREDITO"
+            ],
+            [
+                "Master",
+                "From_Read_RAPPORTI_PORTAFOGLIO"
+            ],
+            [
+                "Prima condizione di join",
+                "DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND CAG_RISCHIO_INTESTATARIO = CAG_CODICE_ANAGRAFE_GENERALE_DTL"
+            ],
+            [
+                "Detail",
+                "From_Read_DATI_TRIMESTRALI_CREDITI"
+            ],
+            [
+                "Seconda condizione di join",
+                "DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND SERVIZIO = SERVIZIO_DTL AND RAPPORTO = ID_RAPPORTO_FIDO_DTL"
+            ]
+        ],
+        "Messaggio": "COD_STAGE non valorizzato correttamente",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Titoli_Rap_20_04": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210930"
+            ],
+            [
+                "ABI",
+                "08692"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "538"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "7"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_TITOLI_TRANCHE_IFRS9",
+                "\"S2A\".\"TITOLI_TRANCHE_IFRS9\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"TITOLI_TRANCHE_IFRS9\".\"ABI_BANCA\" IN ($ABI) AND\r\n\"S2A\".\"TITOLI_TRANCHE_IFRS9\".\"IMP_NOMINALE_COSTO_AMM\"<>0 AND \"S2A\".\"TITOLI_TRANCHE_IFRS9\".\"PD_ANNO\"=100"
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"538\" AND ID_PROGR_OCCORRENZA=\"7\" AND ABI in ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"538\" AND ID_PROGR_OCCORRENZA=\"7\" AND ABI in ($ABI)"
+            ]
+        ],
+        "Join": [],
+        "Messaggio": "COD_STAGE_IFRS9 non valorizzato correttamente",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Banche_Rap_20_05": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210630"
+            ],
+            [
+                "ABI",
+                "08692"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "539"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "1"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_DATI_ANAGRAFICI_CREDITO",
+                "\"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"ABI_BANCA\" in ($ABI) and (\"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"COD_TIPO_CREDITO\"<>\"5\" AND \"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"COD_TIPO_CREDITO\"<>\"9\")"
+            ],
+            [
+                "Read_CONTI_BANCA",
+                "\"S2A\".\"CONTI_BANCA\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") and \"S2A\".\"CONTI_BANCA\".\"ABI_BANCA\" in ($ABI)"
+            ],
+            [
+                "Read_DATI_TRIMESTRALI_CREDITI",
+                "\"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") and \"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"ABI_BANCA\" in ($ABI)"
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"539\" AND ID_PROGR_OCCORRENZA=\"1\" AND ABI in ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"539\" AND ID_PROGR_OCCORRENZA=\"1\" AND ABI in ($ABI)"
+            ]
+        ],
+        "Join": [
+            [
+                "Detail",
+                "From_Read_DATI_ANAGRAFICI_CREDITO"
+            ],
+            [
+                "Master",
+                "From_Read_CONTI_BANCA"
+            ],
+            [
+                "Prima condizione di join",
+                "DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND CAG_RISCHIO_INTESTATARIO = CAG_CODICE_ANAGRAFE_GENERALE_DTL"
+            ],
+            [
+                "Detail",
+                "From_Read_DATI_TRIMESTRALI_CREDITI"
+            ],
+            [
+                "Seconda condizione di join",
+                "DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND SERVIZIO = SERVIZIO_DTL AND RAPPORTO = ID_RAPPORTO_FIDO_DTL"
+            ]
+        ],
+        "Messaggio": "COD_STAGE non valorizzato correttamente",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Cc_Depositi_Rap_20_05": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210630"
+            ],
+            [
+                "ABI",
+                "08692"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "539"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "2"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_CONTI_CORRENTI",
+                "\"S2A\".\"CONTI_CORRENTI\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") \"S2A\".\"CONTI_CORRENTI\".\"ABI_BANCA\" in ($ABI)"
+            ],
+            [
+                "Read_DATI_ANAGRAFICI_CREDITO",
+                "\"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\")  AND \"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"ABI_BANCA\" in ($ABI) and (\"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"COD_TIPO_CREDITO\"<>\"5\" AND \"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"COD_TIPO_CREDITO\"<>\"9\")"
+            ],
+            [
+                "Read_DATI_TRIMESTRALI_CREDITI",
+                "\"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") and \"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"ABI_BANCA\" in ($ABI)"
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"539\" AND ID_PROGR_OCCORRENZA=\"2\" AND ABI in ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"539\" AND ID_PROGR_OCCORRENZA=\"2\" AND ABI in ($ABI)"
+            ]
+        ],
+        "Join": [
+            [
+                "Detail",
+                "From_Read_DATI_ANAGRAFICI_CREDITO"
+            ],
+            [
+                "Master",
+                "From_Read_CONTI_CORRENTI"
+            ],
+            [
+                "Prima condizione di join",
+                "DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND CAG_RISCHIO_INTESTATARIO = CAG_CODICE_ANAGRAFE_GENERALE_DTL"
+            ],
+            [
+                "Detail",
+                "From_Read_DATI_TRIMESTRALI_CREDITI"
+            ],
+            [
+                "Seconda condizione di join",
+                "DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND SERVIZIO = SERVIZIO_DTL AND RAPPORTO = ID_RAPPORTO_FIDO_DTL"
+            ]
+        ],
+        "Messaggio": "COD_STAGE non valorizzato correttamente",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Estero_Rap_20_05": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210630"
+            ],
+            [
+                "ABI",
+                "08692"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "539"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "3"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_DATI_ANAGRAFICI_CREDITO",
+                "\"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") and \"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"ABI_BANCA\" in ($ABI) AND (\"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"COD_TIPO_CREDITO\"<>\"5\" AND \"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"COD_TIPO_CREDITO\"<>\"9\")"
+            ],
+            [
+                "Read_FINANZIAMENTI_ESTERO",
+                "\"S2A\".\"FINANZIAMENTI_ESTERO\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") and \"S2A\".\"FINANZIAMENTI_ESTERO\".\"ABI_BANCA\" in ($ABI)"
+            ],
+            [
+                "Read_DATI_TRIMESTRALI_CREDITI",
+                "\"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") and \"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"ABI_BANCA\" in ($ABI)"
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"539\" AND ID_PROGR_OCCORRENZA=\"3\" AND ABI in ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"539\" AND ID_PROGR_OCCORRENZA=\"3\" AND ABI in ($ABI)"
+            ]
+        ],
+        "Join": [
+            [
+                "Detail",
+                "From_Read_DATI_ANAGRAFICI_CREDITO"
+            ],
+            [
+                "Master",
+                "From_Read_FINANZIAMENTI_ESTERO"
+            ],
+            [
+                "Prima condizione di join",
+                "DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND CAG_RISCHIO_INTESTATARIO = CAG_CODICE_ANAGRAFE_GENERALE_DTL"
+            ],
+            [
+                "Detail",
+                "From_Read_DATI_TRIMESTRALI_CREDITI"
+            ],
+            [
+                "Seconda condizione di join",
+                "DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND SERVIZIO = SERVIZIO_DTL AND RAPPORTO = ID_RAPPORTO_FIDO_DTL AND RAPPORTO_ID_PARTITA = ID_PARTITA_DTL"
+            ]
+        ],
+        "Messaggio": "COD_STAGE non valorizzato correttamente",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Crediti_Rap_20_05": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210630"
+            ],
+            [
+                "ABI",
+                "08692"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "539"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "4"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_MUTUI",
+                "\"S2A\".\"MUTUI\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"MUTUI\".\"ABI_BANCA\" IN ($ABI)"
+            ],
+            [
+                "Read_DATI_ANAGRAFICI_CREDITO",
+                "\"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"ABI_BANCA\" IN ($ABI) and \"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"COD_TIPO_CREDITO\"<>\"5\" AND \"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"COD_TIPO_CREDITO\"<>\"9\""
+            ],
+            [
+                "Read_DATI_TRIMESTRALI_CREDITI",
+                "\"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") and \"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"ABI_BANCA\" in ($ABI)"
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"539\" AND ID_PROGR_OCCORRENZA=\"4\" AND ABI in ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"539\" AND ID_PROGR_OCCORRENZA=\"4\" AND ABI in ($ABI)"
+            ]
+        ],
+        "Join": [
+            [
+                "Detail",
+                "From_Read_DATI_ANAGRAFICI_CREDITO"
+            ],
+            [
+                "Master",
+                "From_Read_MUTUI"
+            ],
+            [
+                "Prima condizione di join",
+                "DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND CAG_RISCHIO_INTESTATARIO = CAG_CODICE_ANAGRAFE_GENERALE_DTL"
+            ],
+            [
+                "Detail",
+                "From_Read_DATI_TRIMESTRALI_CREDITI"
+            ],
+            [
+                "Seconda condizione di join",
+                "DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND SERVIZIO = SERVIZIO_DTL AND RAPPORTO = ID_RAPPORTO_FIDO_DTL"
+            ]
+        ],
+        "Messaggio": "COD_STAGE non valorizzato correttamente",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Portafoglio_Rap_20_05": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210630"
+            ],
+            [
+                "ABI",
+                "08692"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "539"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "5"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_DATI_TRIMESTRALI_CREDITI",
+                "\"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") and \"S2A\".\"DATI_TRIMESTRALI_CREDITI\".\"ABI_BANCA\" in ($ABI)"
+            ],
+            [
+                "Read_DATI_ANAGRAFICI_CREDITO",
+                "\"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"ABI_BANCA\" in ($ABI) and (\"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"COD_TIPO_CREDITO\"<>\"5\" AND \"S2A\".\"DATI_ANAGRAFICI_CREDITO\".\"COD_TIPO_CREDITO\"<>\"9\")"
+            ],
+            [
+                "Read_RAPPORTI_PORTAFOGLIO",
+                "\"S2A\".\"RAPPORTI_PORTAFOGLIO\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") and \"S2A\".\"RAPPORTI_PORTAFOGLIO\".\"ABI_BANCA\" in ($ABI)"
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"539\" AND ID_PROGR_OCCORRENZA=\"5\" AND ABI in ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"539\" AND ID_PROGR_OCCORRENZA=\"5\" AND ABI in ($ABI)"
+            ]
+        ],
+        "Join": [
+            [
+                "Detail",
+                "From_Read_DATI_ANAGRAFICI_CREDITO"
+            ],
+            [
+                "Master",
+                "From_Read_RAPPORTI_PORTAFOGLIO"
+            ],
+            [
+                "Prima condizione di join",
+                "DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND CAG_RISCHIO_INTESTATARIO = CAG_CODICE_ANAGRAFE_GENERALE_DTL"
+            ],
+            [
+                "Detail",
+                "From_Read_DATI_TRIMESTRALI_CREDITI"
+            ],
+            [
+                "Seconda condizione di join",
+                "DATA_RIFERIMENTO = DATA_RIFERIMENTO_DTL AND ABI_BANCA = ABI_BANCA_DTL AND SERVIZIO = SERVIZIO_DTL AND RAPPORTO = ID_RAPPORTO_FIDO_DTL"
+            ]
+        ],
+        "Messaggio": "COD_STAGE non valorizzato correttamente",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    },
+    "m_Titoli_Rap_20_05": {
+        "Parametri": [
+            [
+                "DT_RIFERIMENTO",
+                "20210901"
+            ],
+            [
+                "ABI",
+                "08692"
+            ]
+        ],
+        "Chiavi controllo": [
+            [
+                "ID_SISTEMA",
+                "SIB"
+            ],
+            [
+                "ID_PROGR_CONTROLLO",
+                "539"
+            ],
+            [
+                "ID_PROGR_OCCORENZA",
+                "6"
+            ]
+        ],
+        "Tabelle sorgenti": [
+            [
+                "Read_TITOLI_TRANCHE_IFRS9",
+                "\"S2A\".\"TITOLI_TRANCHE_IFRS9\".\"DATA_RIFERIMENTO\"=to_date($DT_RIFERIMENTO,\"YYYY-MM-DD\") AND \"S2A\".\"TITOLI_TRANCHE_IFRS9\".\"ABI_BANCA\" in ($ABI) and \"S2A\".\"TITOLI_TRANCHE_IFRS9\".\"IMP_NOMINALE_COSTO_AMM\"<>0 AND \"S2A\".\"TITOLI_TRANCHE_IFRS9\".\"PD_ANNO\"<>100"
+            ]
+        ],
+        "Tabelle target": [
+            [
+                "Write_EDQSTGTB00001N",
+                "delete from \"EDQSTGTB00001N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"539\" AND ID_PROGR_OCCORRENZA=\"6\" AND ABI in ($ABI)"
+            ],
+            [
+                "Write_EDQSTGTB00002N",
+                "delete from \"EDQSTGTB00002N\" where ID_SISTEMA=\"SIB\" AND ID_PROGR_CONTROLLO=\"539\" AND ID_PROGR_OCCORRENZA=\"6\" AND ABI in ($ABI)"
+            ]
+        ],
+        "Join": [],
+        "Messaggio": "COD_STAGE_IFRS9 non valorizzato correttamente",
+        "Flag attivo": 1,
+        "Tabella lookup": "Lookup_ANAEDQODSTB00001N"
+    }
+}

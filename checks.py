@@ -1,8 +1,8 @@
 import configs
 
 
-def check_parameters(parameter):
-    if parameter is None:
+def check_parameters(parameters):
+    if len(parameters) != 2:
         return 'X'
     else:
         return 'OK'
@@ -35,7 +35,7 @@ def check_keys_and_SQL(keys, target_tables):
         except:
             return 'X'
         else:
-            if string_keys[0] not in tokens or string_keys[1] not in tokens or abi_string not in tokens:
+            if string_keys[0] in tokens and string_keys[1] in tokens and abi_string in tokens:
                 try:
                     last_token = string_keys[2] in tokens
                 except:
@@ -46,6 +46,13 @@ def check_keys_and_SQL(keys, target_tables):
 
 def check_flag(flag, lkp_table_name):
     if flag == 1 or lkp_table_name == configs.LKP_TABLE_NAME:
+        return 'OK'
+    else:
+        return 'X'
+
+
+def check_message(message):
+    if message is not None:
         return 'OK'
     else:
         return 'X'

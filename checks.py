@@ -1,14 +1,14 @@
 import configs
 
 
-def check_parameters(parameters):
+def check_parameters(parameters) -> str:
     if len(parameters) != 2:
         return 'X'
     else:
         return 'OK'
 
 
-def check_filter(source_tables):
+def check_filter(source_tables) -> str:
     all_source_tables_checked = True
     for source_table in source_tables:
         table_filter = source_table[1]
@@ -26,7 +26,7 @@ def check_filter(source_tables):
         return 'OK'
 
 
-def check_keys_and_SQL(keys, target_tables):
+def check_keys_and_SQL(keys, target_tables) -> str:
     string_keys = (
         f'ID_SISTEMA="{keys[0][1]}"', f'ID_PROGR_CONTROLLO="{keys[1][1]}"', f'ID_PROGR_OCCORRENZA="{keys[2][1]}"')
     abi_string = f'ABI IN {configs.ABI_STRING}'.lower()
@@ -50,14 +50,14 @@ def check_keys_and_SQL(keys, target_tables):
         return 'X'
 
 
-def check_flag(flag, lkp_table_name):
+def check_flag(flag, lkp_table_name) -> str:
     if flag == 1 or lkp_table_name == configs.LKP_TABLE_NAME:
         return 'OK'
     else:
         return 'X'
 
 
-def check_message(message):
+def check_message(message) -> str:
     if message is not None:
         return 'OK'
     else:

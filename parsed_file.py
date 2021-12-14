@@ -1,9 +1,10 @@
 import configs
+import xml.etree.ElementTree as ET
 
 
 class ParsedXML:
 
-    def __init__(self, input_xml):
+    def __init__(self, input_xml) -> None:
         self._parsed_xml = input_xml
         self._workflow_name = None
         self._folder_fields = []
@@ -13,13 +14,13 @@ class ParsedXML:
         self._all_keys = {}
         self._keys_to_mapping = {}
 
-    def createWorkflowField(self):
+    def createWorkflowField(self) -> None:
         for field in self._parsed_xml:
             field_name = field.tag.split("}")[1]
             if field_name == "Workflow":
                 self._workflow_field = field
 
-    def createRemainingFields(self):
+    def createRemainingFields(self) -> None:
         for key in self._all_keys:
             for field in self._parsed_xml:
                 field_name = field.tag.split("}")[1]
@@ -45,10 +46,10 @@ class ParsedXML:
                                             self._project_fields.append(
                                                 (self._all_keys.get(key), id_obj_content))
 
-    def createWorkflowName(self):
+    def createWorkflowName(self) -> None:
         self._workflow_name = self._workflow_field.get('name')
 
-    def createAllKeys(self):
+    def createAllKeys(self) -> None:
         for sub_field in self._workflow_field:
             if sub_field.tag == "taskInstances":
                 task_instances = sub_field
@@ -58,20 +59,20 @@ class ParsedXML:
                         value = task_instance.get('name')
                         self._all_keys[key] = value
 
-    def getFolderFields(self):
+    def getFolderFields(self) -> list:
         return self._folder_fields
 
-    def getMappingFields(self):
+    def getMappingFields(self) -> list:
         return self._mapping_fields
 
-    def getProjectFields(self):
+    def getProjectFields(self) -> list:
         return self._project_fields
 
-    def getWorkflowField(self):
+    def getWorkflowField(self) -> ET.Element:
         return self._workflow_field
 
-    def getWorkflowName(self):
+    def getWorkflowName(self) -> str:
         return self._workflow_name
 
-    def getAllKeys(self):
+    def getAllKeys(self) -> dict:
         return self._all_keys

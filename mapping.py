@@ -4,7 +4,7 @@ import configs
 
 class Mapping:
 
-    def __init__(self, name):
+    def __init__(self, name) -> None:
         self._name = name
         self._parameter = []
         self._rule_keys = []
@@ -15,12 +15,12 @@ class Mapping:
         self._flag = None
         self._lookup = None
 
-    def createParameter(self, parameter_field):
+    def createParameters(self, parameter_field) -> None:
         for parameter in parameter_field:
             self._parameter.append(
                 (parameter.get('name'), parameter[0].get('valueLiteral')))
 
-    def createRuleKeys(self, exp_fields):
+    def createRuleKeys(self, exp_fields) -> None:
         for exp_field in exp_fields:
             if exp_field.get('name') == "ID_SISTEMA" or \
                     exp_field.get('name') == "ID_PROGR_CONTROLLO" or \
@@ -34,22 +34,23 @@ class Mapping:
                     self._rule_keys.append(
                         (exp_field.get('name'), decoded_exp))
 
-    def createFlag(self, exp_fields):
+    def createFlag(self, exp_fields) -> None:
         flag = None
         for exp_field in exp_fields:
             if (exp_field.get('name') == 'FLG_ATTIVO' or
                 exp_field.get('name') == 'FLG_ATTIVO_LKP' or
-                    exp_field.get('name') == 'FLG_ATTIVO1') and \
+                exp_field.get('name') == 'FLG_ATTIVO1') and \
                     exp_field.get('input') == 'true':
                 flag = 1
-            if (exp_field.get('name') == 'FLG_ATTIVO1' or exp_field.get('name') == 'FLG_ATTIVO') and 'input' not in exp_field.keys():
+            if (exp_field.get('name') == 'FLG_ATTIVO1' or exp_field.get(
+                    'name') == 'FLG_ATTIVO') and 'input' not in exp_field.keys():
                 flag = 0
                 break
         if flag is None:
             flag = 0
         self._flag = flag
 
-    def createSourceTables(self, abstract_transformation):
+    def createSourceTables(self, abstract_transformation) -> None:
         filter_condition = abstract_transformation[0].get(
             'filterCondition')
         if filter_condition is None:
@@ -61,7 +62,7 @@ class Mapping:
                 'name'), decoded_filter)
         self._source_tables.append(source_table)
 
-    def createTargetTables(self, abstract_transformation):
+    def createTargetTables(self, abstract_transformation) -> None:
         pre_sql = abstract_transformation[0].get('preSQL')
         if pre_sql is None:
             target_table = (abstract_transformation.get('name'), None)
@@ -71,7 +72,7 @@ class Mapping:
             target_table = (abstract_transformation.get('name'), decoded_sql)
         self._target_tables.append(target_table)
 
-    def createFirstJoiners(self, abstract_transformation, join_interfaces):
+    def createFirstJoiners(self, abstract_transformation, join_interfaces) -> None:
         table_name = ""
         for join_interface in join_interfaces:
             if join_interface.get(configs.TYPE_STRING) == 'joiner:JoinerDataInterface' and \
@@ -92,11 +93,12 @@ class Mapping:
                 self._joiners.append(
                     ("Prima condizione di join", decoded_join_condition))
 
-    def createSecondJoiners(self, abstract_transformation, join_interfaces):
+    def createSecondJoiners(self, abstract_transformation, join_interfaces) -> None:
         len_join_fields = 0
         table_name = ""
         for join_interface in join_interfaces:
-            if join_interface.get(configs.TYPE_STRING) == 'joiner:JoinerDataInterface' and join_interface.get('name') == 'Detail':
+            if join_interface.get(configs.TYPE_STRING) == 'joiner:JoinerDataInterface' and join_interface.get(
+                    'name') == 'Detail':
                 table_type = join_interface.get('name')
                 join_fileds = join_interface[0]
                 len_join_fields = len(join_fileds)
@@ -116,7 +118,7 @@ class Mapping:
                     self._joiners.append(
                         ("Seconda condizione di join", decoded_join_condition))
 
-    def createMessage(self, exp_fields):
+    def createMessage(self, exp_fields) -> None:
         message = None
         for exp_field in exp_fields:
             if exp_field.get('name') == 'MESSAGGIO':
@@ -129,53 +131,53 @@ class Mapping:
                     message = decoded_exp
         self._message = message
 
-    def getName(self):
+    def getName(self) -> str:
         return self._name
 
-    def getParameter(self):
+    def getParameter(self) -> list:
         return self._parameter
 
-    def getRuleKeys(self):
+    def getRuleKeys(self) -> list:
         return self._rule_keys
 
-    def getSourceTables(self):
+    def getSourceTables(self) -> list:
         return self._source_tables
 
-    def getTargetTables(self):
+    def getTargetTables(self) -> list:
         return self._target_tables
 
-    def getJoiners(self):
+    def getJoiners(self) -> list:
         return self._joiners
 
-    def getMessage(self):
+    def getMessage(self) -> str:
         return self._message
 
-    def getFlag(self):
+    def getFlag(self) -> str:
         return self._flag
 
-    def getLookup(self):
+    def getLookup(self) -> str:
         return self._lookup
 
-    def updateParameter(self, parameter):
+    def updateParameter(self, parameter) -> None:
         self._parameter = parameter
 
-    def updateRuleKeys(self, rule_keys):
+    def updateRuleKeys(self, rule_keys) -> None:
         self._rule_keys = rule_keys
 
-    def updateSourceTables(self, source_tables):
+    def updateSourceTables(self, source_tables) -> None:
         self._source_tables = source_tables
 
-    def updateTargetTables(self, target_tables):
+    def updateTargetTables(self, target_tables) -> None:
         self._target_tables = target_tables
 
-    def updateJoiners(self, joiners):
+    def updateJoiners(self, joiners) -> None:
         self._joiners = joiners
 
-    def updateMessage(self, message):
+    def updateMessage(self, message) -> None:
         self._message = message
 
-    def updateFlag(self, flag):
+    def updateFlag(self, flag) -> None:
         self._flag = flag
 
-    def updateLookup(self, lookup):
+    def updateLookup(self, lookup) -> None:
         self._lookup = lookup

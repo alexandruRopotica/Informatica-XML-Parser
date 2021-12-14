@@ -2,7 +2,7 @@ from urllib.parse import unquote_plus
 import configs
 
 
-class Mapping():
+class Mapping:
 
     def __init__(self, name):
         self._name = name
@@ -27,7 +27,7 @@ class Mapping():
                     (exp_field.get('name') == "ID_PROGR_OCCORRENZA" or exp_field.get('name') == "ID_PROGR_OCCORENZA"):
                 expression = exp_field.get('expression')
                 if expression is None:
-                    self._rule_keys.append(None, None)
+                    self._rule_keys.append((None, None))
                 else:
                     decoded_exp = unquote_plus(
                         expression).replace("'", "")
@@ -50,7 +50,6 @@ class Mapping():
         self._flag = flag
 
     def createSourceTables(self, abstract_transformation):
-        source_table = None
         filter_condition = abstract_transformation[0].get(
             'filterCondition')
         if filter_condition is None:
@@ -63,7 +62,6 @@ class Mapping():
         self._source_tables.append(source_table)
 
     def createTargetTables(self, abstract_transformation):
-        target_table = None
         pre_sql = abstract_transformation[0].get('preSQL')
         if pre_sql is None:
             target_table = (abstract_transformation.get('name'), None)

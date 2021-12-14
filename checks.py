@@ -11,11 +11,15 @@ def check_parameters(parameters):
 def check_filter(source_tables):
     all_source_tables_checked = True
     for source_table in source_tables:
-        filter = source_table[1]
-        if filter is None:
+        table_filter = source_table[1]
+        if table_filter is None:
             all_source_tables_checked = False
-        elif configs.DATE_STRING not in filter or configs.ABI_STRING not in filter:
+        elif configs.DATE_STRING not in table_filter or configs.ABI_STRING not in table_filter:
             all_source_tables_checked = False
+        else:
+            table_filter_tokens = table_filter.upper().split('AND')
+            if len(table_filter_tokens) < 2:
+                all_source_tables_checked = False
     if not all_source_tables_checked:
         return 'X'
     else:
@@ -25,23 +29,25 @@ def check_filter(source_tables):
 def check_keys_and_SQL(keys, target_tables):
     string_keys = (
         f'ID_SISTEMA="{keys[0][1]}"', f'ID_PROGR_CONTROLLO="{keys[1][1]}"', f'ID_PROGR_OCCORRENZA="{keys[2][1]}"')
-    abi_string = f'ABI in {configs.ABI_STRING}'
+    abi_string = f'ABI IN {configs.ABI_STRING}'.lower()
     preSQLs = []
+    presqls_checked = True
     for i in range(2):
         preSQLs.append(target_tables[i][1])
     for preSQL in preSQLs:
         try:
             tokens = preSQL.split(' ')
+            abi_condition = preSQL.split('AND')[-1].lower()
         except:
             return 'X'
         else:
-            if string_keys[0] in tokens and string_keys[1] in tokens and abi_string in tokens:
-                try:
-                    last_token = string_keys[2] in tokens
-                except:
-                    if not last_token:
-                        return 'X'
-    return 'OK'
+            if string_keys[0] not in tokens or string_keys[1] not in tokens or string_keys[
+                2] not in tokens or abi_string not in abi_condition:
+                presqls_checked = False
+    if presqls_checked:
+        return 'OK'
+    else:
+        return 'X'
 
 
 def check_flag(flag, lkp_table_name):

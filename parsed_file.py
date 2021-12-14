@@ -1,7 +1,7 @@
 import configs
 
 
-class ParsedXML():
+class ParsedXML:
 
     def __init__(self, input_xml):
         self._parsed_xml = input_xml
@@ -67,8 +67,8 @@ class ParsedXML():
     def getProjectFields(self):
         return self._project_fields
 
-    def getWorkflowFields(self):
-        return self._workflow_fields
+    def getWorkflowField(self):
+        return self._workflow_field
 
     def getWorkflowName(self):
         return self._workflow_name

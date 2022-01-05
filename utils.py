@@ -315,7 +315,6 @@ def generateTable(json_path, table_path) -> None:
         txt_file.write(f'\t- Il filtro su DATA_RIFERIMENTO non è scritto in questo modo \'{configs.DATE_STRING}\'\n')
         txt_file.write(
             'La "X" sul Coerenza Chiavi e PRESQL può essere dato da\n')
-        txt_file.write('\t- La mancanza di ID_PROGR_OCCORRENZA nel pre-SQL\n')
         txt_file.write(
             f'\t- La condizione su ABI nel pre-SQL non è scritto in questo modo \'ABI IN {configs.ABI_STRING}\'\n\n')
         txt_file.write(tabulate(table, headers='firstrow',

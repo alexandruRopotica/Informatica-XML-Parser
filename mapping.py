@@ -31,8 +31,12 @@ class Mapping:
                 else:
                     decoded_exp = unquote_plus(
                         expression).replace("'", "")
-                    self._rule_keys.append(
-                        (exp_field.get('name'), decoded_exp))
+                    if exp_field.get('name') == "ID_PROGR_OCCORRENZA" or exp_field.get('name') == "ID_PROGR_OCCORENZA":
+                        self._rule_keys.append(
+                            ("ID_PROGR_OCCORRENZA", decoded_exp))
+                    else:
+                        self._rule_keys.append(
+                            (exp_field.get('name'), decoded_exp))
 
     def createFlag(self, exp_fields) -> None:
         flag = None

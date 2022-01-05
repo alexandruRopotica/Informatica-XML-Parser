@@ -27,22 +27,25 @@ def check_filter(source_tables) -> str:
 
 
 def check_keys_and_SQL(keys, target_tables) -> str:
+    presqls_checked = None
     string_keys = (
         f'ID_SISTEMA="{keys[0][1]}"', f'ID_PROGR_CONTROLLO="{keys[1][1]}"', f'ID_PROGR_OCCORRENZA="{keys[2][1]}"')
     abi_string = f'ABI IN {configs.ABI_STRING}'.lower()
     preSQLs = []
-    presqls_checked = True
     for i in range(2):
         preSQLs.append(target_tables[i][1])
     for preSQL in preSQLs:
+        presqls_checked = True
         try:
             tokens = preSQL.split(' ')
             abi_condition = preSQL.split('AND')[-1].lower()
         except:
             return 'X'
         else:
-            if string_keys[0] not in tokens or string_keys[1] not in tokens or string_keys[
-                2] not in tokens or abi_string not in abi_condition:
+            if tokens[2] not in configs.PRE_SQL_TABLES:
+                presqls_checked = False
+            elif string_keys[0] not in tokens or \
+                    string_keys[1] not in tokens or string_keys[2] not in tokens or abi_string not in abi_condition:
                 presqls_checked = False
     if presqls_checked:
         return 'OK'
@@ -51,7 +54,7 @@ def check_keys_and_SQL(keys, target_tables) -> str:
 
 
 def check_flag(flag, lkp_table_name) -> str:
-    if flag == 1 or lkp_table_name == configs.LKP_TABLE_NAME:
+    if flag == 1 and lkp_table_name == configs.LKP_TABLE_NAME:
         return 'OK'
     else:
         return 'X'
